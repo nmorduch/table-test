@@ -10,6 +10,12 @@ function sortCountries(property = 'Total energy supply', ascending = false) {
   countries.value.sort((a, b) => {
     let propertyA = a[property]
     let propertyB = b[property]
+    if (propertyA == null) {
+      return 1
+    }
+    if (propertyB == null) {
+      return -1
+    }
     if (ascending) {
       if (propertyA < propertyB) {
         return -1
