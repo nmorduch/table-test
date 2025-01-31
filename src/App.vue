@@ -64,22 +64,22 @@ function sortCountries(property = 'Total energy supply', direction = 'descending
     <table>
       <thead>
         <tr>
-          <th :aria-sort="sortColumn == 'country' ? sortDirection : null">
+          <th scope="col" :aria-sort="sortColumn == 'country' ? sortDirection : null">
             Country
             <button @click="sortCountries('country', 'ascending')">asc</button>
             <button @click="sortCountries('country', 'descending')">desc</button>
           </th>
-          <th :aria-sort="sortColumn == 'region' ? sortDirection : null">
+          <th scope="col" :aria-sort="sortColumn == 'region' ? sortDirection : null">
             Region
             <button @click="sortCountries('region', 'ascending')">asc</button>
             <button @click="sortCountries('region', 'descending')">desc</button>
           </th>
-          <th :aria-sort="sortColumn == 'Total energy supply' ? sortDirection : null">
+          <th scope="col" :aria-sort="sortColumn == 'Total energy supply' ? sortDirection : null">
             Total energy supply
             <button @click="sortCountries('Total energy supply', 'ascending')">asc</button>
             <button @click="sortCountries('Total energy supply', 'descending')">desc</button>
           </th>
-          <th>Member</th>
+          <th scope="col">Member</th>
         </tr>
       </thead>
       <tbody>

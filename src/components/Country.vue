@@ -20,8 +20,8 @@ defineProps({
 </script>
 
 <template>
-  <tr>
-    <th>{{ countryName }}</th>
+  <tr :aria-rowindex="index">
+    <th scope="row">{{ countryName }}</th>
     <td>{{ region }}</td>
     <td>{{ totalEnergySupply }}</td>
     <td>{{ member }}</td>
