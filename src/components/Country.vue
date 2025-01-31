@@ -27,7 +27,7 @@ defineProps({
   <tr :aria-rowindex="index">
     <th scope="row">{{ countryName }}</th>
     <td>{{ region }}</td>
-    <td>{{ totalEnergySupply }}</td>
+    <td>{{ totalEnergySupply == '—' ? '—' : Intl.NumberFormat().format(totalEnergySupply) }}</td>
     <td>{{ member }}</td>
   </tr>
 </template>
