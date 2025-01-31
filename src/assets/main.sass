@@ -1,13 +1,65 @@
 body
   font-family: sans-serif
+  max-width: 100%
+  width: 60em
+  margin: 0 auto
+header, main
+  margin: 1em
 table
-  border-spacing: 0
   border-collapse: collapse
+  width: 100%
+  & > caption
+    font-size: 1.2rem
+    margin-bottom: 0.5em
+    text-align: left
+    font-weight: bold
 td, th
-  padding: 0.2rem
-  border: 1px solid #ddd
+  padding: 0.5rem
+  border: 1px solid #bbb
   text-align: left
+thead
+  background: #ddd
+tbody tr:nth-child(even)
+  background: #eee
+button
+  background: none
+  border: 1px solid black
+  border-radius: 3px
+  padding: 0.3em 0.5em
+  &:not(:last-child)
+    margin-right: 0.3em
+  &:disabled
+    border-color: #bbb
+  &:hover:not(:disabled)
+    background: #333
+    color: white
+  &:active, &:focus
+    background: black
+    color: white
 
 .sr-only 
   position: absolute
   top: -30em
+
+.table
+  &__col-wide
+      width: 30%
+  &__sort-button-group
+    display: inline-flex
+    flex-direction: column
+    vertical-align: middle
+  &__sort-button
+    border-width: 0
+    padding: 0.2em 0.3em
+    line-height: 1
+    &:first-child
+      margin: 0
+      padding-bottom: 0
+    &:last-child
+      padding-top: 0
+
+.table-nav
+  margin-top: 1em
+  display: flex
+  justify-content: space-between
+  align-items: center

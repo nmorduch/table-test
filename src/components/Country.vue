@@ -28,6 +28,6 @@ defineProps({
     <th scope="row">{{ countryName }}</th>
     <td>{{ region }}</td>
     <td>{{ totalEnergySupply == '—' ? '—' : Intl.NumberFormat().format(totalEnergySupply) }}</td>
-    <td>{{ member }}</td>
+    <td>{{ member ? 'Member' : '' }}</td>
   </tr>
 </template>

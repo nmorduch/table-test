@@ -70,20 +70,70 @@ function sortCountries(property = 'Total energy supply', direction = 'descending
       </caption>
       <thead>
         <tr>
-          <th scope="col" :aria-sort="sortColumn == 'country' ? sortDirection : null">
+          <th
+            class="table__col-wide"
+            scope="col"
+            :aria-sort="sortColumn == 'country' ? sortDirection : null"
+          >
             Country
-            <button @click="sortCountries('country', 'ascending')">asc</button>
-            <button @click="sortCountries('country', 'descending')">desc</button>
+            <div class="table__sort-button-group">
+              <button
+                class="table__sort-button"
+                @click="sortCountries('country', 'ascending')"
+                aria-label="Sort ascending"
+              >
+                ▲
+              </button>
+              <button
+                class="table__sort-button"
+                @click="sortCountries('country', 'descending')"
+                aria-label="Sort descending"
+              >
+                ▼
+              </button>
+            </div>
           </th>
-          <th scope="col" :aria-sort="sortColumn == 'region' ? sortDirection : null">
+          <th
+            class="table__col-wide"
+            scope="col"
+            :aria-sort="sortColumn == 'region' ? sortDirection : null"
+          >
             Region
-            <button @click="sortCountries('region', 'ascending')">asc</button>
-            <button @click="sortCountries('region', 'descending')">desc</button>
+            <div class="table__sort-button-group">
+              <button
+                class="table__sort-button"
+                @click="sortCountries('region', 'ascending')"
+                aria-label="Sort ascending"
+              >
+                ▲
+              </button>
+              <button
+                class="table__sort-button"
+                @click="sortCountries('region', 'descending')"
+                aria-label="Sort descending"
+              >
+                ▼
+              </button>
+            </div>
           </th>
           <th scope="col" :aria-sort="sortColumn == 'Total energy supply' ? sortDirection : null">
             Total energy supply
-            <button @click="sortCountries('Total energy supply', 'ascending')">asc</button>
-            <button @click="sortCountries('Total energy supply', 'descending')">desc</button>
+            <div class="table__sort-button-group">
+              <button
+                class="table__sort-button"
+                @click="sortCountries('Total energy supply', 'ascending')"
+                aria-label="Sort ascending"
+              >
+                ▲
+              </button>
+              <button
+                class="table__sort-button"
+                @click="sortCountries('Total energy supply', 'descending')"
+                aria-label="Sort descending"
+              >
+                ▼
+              </button>
+            </div>
           </th>
           <th scope="col">Member</th>
         </tr>
@@ -100,20 +150,10 @@ function sortCountries(property = 'Total energy supply', direction = 'descending
         />
       </tbody>
     </table>
-    <nav aria-label="Table pagination">
+    <nav class="table-nav" aria-label="Table pagination">
       <button :disabled="currentPage == 1" @click="currentPage--">Previous</button>
-      Current page
-      {{ currentPage }}
-      /
-      {{ totalPages }}
+      Current page: {{ currentPage }} / {{ totalPages }}
       <button :disabled="currentPage == totalPages" @click="currentPage++">Next</button>
     </nav>
   </main>
 </template>
-
-<style lang="sass" scoped>
-caption
-  font-size: 1.2rem
-  margin-bottom: 0.5em
-  font-weight: bold
-</style>
