@@ -1,47 +1,33 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Country from './components/Country.vue'
+import data from './assets/data.json'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+    <h1>Web Developer Test: Sortable Table</h1>
   </header>
 
   <main>
-    <TheWelcome />
+    <table>
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Region</th>
+          <th>Total energy supply</th>
+          <th>Member</th>
+        </tr>
+      </thead>
+      <tbody>
+        <Country
+          v-for="country in data"
+          :key="country.country"
+          :countryName="country.country"
+          :region="country.region"
+          :totalEnergySupply="country['Total energy supply']"
+          :member="country['member']"
+        />
+      </tbody>
+    </table>
   </main>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
