@@ -59,6 +59,12 @@ function sortCountries(property = 'Total energy supply', direction = 'descending
 
   <main>
     <table>
+      <caption>
+        Total energy supply of countries
+        <span class="sr-only">
+          (column headers with buttons are sortable; pagination buttons are below the table).
+        </span>
+      </caption>
       <thead>
         <tr>
           <th scope="col" :aria-sort="sortColumn == 'country' ? sortDirection : null">
@@ -100,3 +106,10 @@ function sortCountries(property = 'Total energy supply', direction = 'descending
     </nav>
   </main>
 </template>
+
+<style lang="sass" scoped>
+caption
+  font-size: 1.2rem
+  margin-bottom: 0.5em
+  font-weight: bold
+</style>
