@@ -58,9 +58,6 @@ function sortCountries(property = 'Total energy supply', direction = 'descending
   </header>
 
   <main>
-    <button :disabled="currentPage == 1" @click="currentPage--">prev</button>
-    Page {{ currentPage }} / {{ totalPages }}
-    <button :disabled="currentPage == totalPages" @click="currentPage++">next</button>
     <table>
       <thead>
         <tr>
@@ -93,5 +90,13 @@ function sortCountries(property = 'Total energy supply', direction = 'descending
         />
       </tbody>
     </table>
+    <nav aria-label="Table pagination">
+      <button :disabled="currentPage == 1" @click="currentPage--">Previous</button>
+      Current page
+      {{ currentPage }}
+      /
+      {{ totalPages }}
+      <button :disabled="currentPage == totalPages" @click="currentPage++">Next</button>
+    </nav>
   </main>
 </template>
