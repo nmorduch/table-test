@@ -1,10 +1,21 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import Country from './components/Country.vue'
 import data from './assets/data.json'
 
 const countries = ref([...data])
 sortCountries()
+
+const pageSize = 20
+const totalPages = ref(Math.ceil(countries.value.length / pageSize))
+const currentPage = ref(1)
+
+const currentCountries = computed(() => {
+  // Pages are indexed from 1 so subtract one for 0-indexed slice
+  let pageStart = (currentPage.value - 1) * pageSize
+  let pageEnd = currentPage.value * pageSize
+  return countries.value.slice(pageStart, pageEnd)
+})
 
 function sortCountries(property = 'Total energy supply', ascending = false) {
   countries.value.sort((a, b) => {
@@ -43,6 +54,9 @@ function sortCountries(property = 'Total energy supply', ascending = false) {
   </header>
 
   <main>
+    <button :disabled="currentPage == 1" @click="currentPage--">prev</button>
+    Page {{ currentPage }} / {{ totalPages }}
+    <button :disabled="currentPage == totalPages" @click="currentPage++">next</button>
     <table>
       <thead>
         <tr>
@@ -66,7 +80,7 @@ function sortCountries(property = 'Total energy supply', ascending = false) {
       </thead>
       <tbody>
         <Country
-          v-for="country in countries"
+          v-for="country in currentCountries"
           :key="country.country"
           :countryName="country.country"
           :region="country.region"
