@@ -1,5 +1,9 @@
 <script setup>
 defineProps({
+  index: {
+    type: Number,
+    required: true,
+  },
   countryName: {
     type: String,
     required: true,

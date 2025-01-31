@@ -49,6 +49,9 @@ function sortCountries(property = 'Total energy supply', direction = 'descending
       return 0
     }
   })
+  countries.value.forEach((el, index) => {
+    el.id = index + 1
+  })
 }
 </script>
 
@@ -58,7 +61,7 @@ function sortCountries(property = 'Total energy supply', direction = 'descending
   </header>
 
   <main>
-    <table>
+    <table :aria-rowcount="countries.length">
       <caption>
         Total energy supply of countries
         <span class="sr-only">
@@ -88,7 +91,8 @@ function sortCountries(property = 'Total energy supply', direction = 'descending
       <tbody>
         <Country
           v-for="country in currentCountries"
-          :key="country.country"
+          :key="country.id"
+          :index="country.id"
           :countryName="country.country"
           :region="country.region"
           :totalEnergySupply="country['Total energy supply']"
