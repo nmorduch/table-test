@@ -1,0 +1,13 @@
+1. What issues did you think about in choosing your approach to this task?
+
+I chose Vue because I was interested in the opportunity to try a new framework, (and it might be what the company uses, given it was first on the list). My approach was based on usability and accessibility. I added numerous attributes for accessibility, which are noted in the git commit messages. My next steps would be to separate out the sort buttons into separate components, add a persistent style to indicate the active sort method, use an icon to indicate org membership rather than giving it a whole column, and provide a graphic representation of total energy supply.
+
+
+2. How can we ensure the table remains usable on smaller screen sizes such as phones?
+
+I have included very rough styles for narrow screens like phones, in which I display each row in a vertical list instead of a horizontal row. Additional work needed includes adding labels directly next to the data (e.g. "Total energy supply: 433"), styling the different pieces of information differently from each other, making the table header sticky, and removing "Member" from the header. I would additionally consider changing the pagination to have fewer countries per page or use a long-scrolling format.
+
+
+3. What would be your next steps to make this into a generic, reusable component that can display data from an API?
+
+I would split out the column headers and the cell data into generic components that can take any number of columns of any of a few types. I would set up the API to provide both the data that is the content of the table and metadata about how to display it, including data types and whether the column should be sortable. Finally, I would set up the application to fetch the data from the API instead of an included file, and to display loading and error indicators as necessary.
